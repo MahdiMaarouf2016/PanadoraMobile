@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="pandora.ctg">
+
+    <supports-screens
+        android:resizeable="true"
+        android:smallScreens="true"
+        android:normalScreens="true"
+        android:largeScreens="true"
+        android:anyDensity="true"
+        />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission-sdk-23 android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission-sdk-23 android:name="android.permission.READ_SMS" />
+    <uses-permission-sdk-23 android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <application
+
+        android:name="pandora.ctg.AppController"
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/icon"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="pandora.ctg.SplashActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="pandora.ctg.MainActivity"
+            android:configChanges="orientation|screenSize"
+            android:hardwareAccelerated="true"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="pandora.ctg.NetworkConnectivity.NetworkError" />
+        <activity
+            android:name="pandora.ctg.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="pandora.ctg.RegisterActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <!-- Firebase Notifications -->
+        <service android:name="fcm.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name="fcm.MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <!-- ./Firebase Notifications -->
+
+        <activity android:name="pandora.ctg.SelectStore" />
+        <activity android:name="pandora.ctg.SelectCity" />
+        <activity
+            android:name="pandora.ctg.ForgotActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="pandora.ctg.PaymentGatWay"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="pandora.ctg.My_Order_activity" />
+        <activity android:name="pandora.ctg.MyOrderDetail" />
+        <activity android:name="pandora.ctg.RechargeWallet" />
+
+        <meta-data
+            android:name="instamojo.orderauth.url"
+            android:value="http://neerajbisht.com/grocery_test/access_token.php" />
+
+        <activity android:name="pandora.ctg.ThanksOrder" />
+        <activity android:name="pandora.ctg.OrderFail" />
+        <activity
+            android:name="com.paytm.pgsdk.PaytmPGActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name="pandora.ctg.Paytm" />
+        <activity android:name="pandora.ctg.NetworkConnectivity.NoInternetConnection"/>
+    </application>
+
+</manifest>
